@@ -1,0 +1,32 @@
+
+  <div class="container" style="margin-top:50px;">
+  <div class="row">
+    <div class="col-sm-6 well">
+      <div class="well well-sm">
+      <form name="userForm" action="#" method="post" onsubmit="return validation()">
+        <strong>Name</strong>
+        <input type="text" class="form-control" ng-model="ureg.uregName" id="name">
+
+        <strong>Contact Number</strong>
+        <input type="text" class="form-control" ng-model="ureg.uregContact" id="contact">
+        <strong>Company Name</strong>
+        <input type="text" class="form-control" ng-model="ureg.uregCName" id="company">
+        <strong>Your City</strong>
+        <input type="text" class="form-control" ng-model="ureg.uregCity" id="city">
+        <strong>Email</strong>
+        <input type="email" class="form-control" ng-model="ureg.uregEmail" id="email">
+        <strong>Password</strong>
+        <input type="password" maxLength="8" class="form-control" ng-model="ureg.uregPassword" id="password">
+      </form><br>
+    </div>
+      <center>
+
+        <a type="submit" href="/book-cab" class="btn btn-primary" ng-click="addData(ureg)">Submit</a>
+        <!--<input type="reset" class="btn btn-warning">Reset</input>-->
+      </center>
+    </div>
+    <div class="container col-sm-6">
+      <img src="images/driver-forth.jpg">
+    </div>
+  </div>
+</div>

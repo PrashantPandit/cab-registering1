@@ -1,0 +1,295 @@
+
+	<div class="container" style="margin-top:60px;">
+	<div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 bhoechie-tab-container">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+              <div class="list-group">
+                <a href="#" class="list-group-item active text-center">
+                  Driver Registration
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  Cab Registration
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  Cab Types
+                </a>
+                <a href="#" class="list-group-item text-center">
+                 Tafiff Plan
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  Offers
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+
+                <!-- flight section -->
+                <div class="bhoechie-tab-content active">
+									<div class="row">
+									<div class="container">
+										<div class="col-xs-12 well">
+
+											<div class="well well-sm">
+											<form>
+											<b><h3 class="text-center">Driver Details</h3></b>
+												<b>Driver Name:</b>
+													<input class="form-control" ng-model="driv.drivName"  placeholder="Name"><br>
+
+												<b>Gender: </b>&nbsp;&nbsp;&nbsp;</b>
+												<select ng-model="driv.drivGender" placeholder="Gender">
+													<option></option>
+													<option>Male</option>
+													<option>Female</option>
+												</select><br><br>
+
+												<div class="row col-md-12">
+													<div class="col-md-6">
+														<b>Age :</b>
+														<input class="form-control" ng-model="driv.drivAge" placeholder="Age"><br>
+													</div>
+													<div class="col-md-6">
+														<b>Contact: </b>
+														<input class="form-control" ng-model="driv.drivContact" placeholder="Contact"><br>
+													</div>
+												</div>
+
+											</form>
+										</div>
+									</div>
+										</div>
+
+									<center><button class="btn btn-primary" ng-click="addData(driv)"> Add Details</button>
+									<button class="btn btn-success" ng-click="updateData(driv)"> Update Details</button></center>
+								</div><br><br>
+
+								<div class="container">
+									<div class="well">
+
+								<table class="table table-bordered table-hover">
+									<thead>
+										<tr>
+											<th>Driver Name</th>
+											<th>Gender</th>
+											<th>Age</th>
+											<th>Contact</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="driv in drivList">
+											<td>{{driv.drivName}}</td>
+											<td>{{driv.drivGender}}</td>
+											<td>{{driv.drivAge}}</td>
+											<td>{{driv.drivContact}}</td>
+											 <td><button ng-click="deleteData(driv)" class="btn btn-danger"> Delete</button></td>
+											<td><button class="btn btn-info" ng-click="editData(driv)"> Edit</button></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+
+							<!-- flight section -->
+							<div class="bhoechie-tab-content active">
+								<div class="row">
+								<div class="container">
+									<div class="col-xs-12 well">
+										<div class="well well-sm">
+										<form>
+										<b><h3 class="text-center">Cab Details</h3></b>
+											<b>Driver Name:</b>
+												<select class="form-control" ng-model="cabr.cabrName"><br>
+													<option  ng-repeat="driv in drivList">{{driv.drivName}}</option>
+												</select><br>
+
+												<div class="row co-md-12">
+													<div class="col-md-6">
+														<b>Car Name:</b>
+													<input class="form-control" ng-model="cabr.cabrCarName" placeholder="Car name"><br><br><br>
+													</div>
+													<div class="col-md-6">
+														<b>Car Type: </b>
+														<select class="form-control" ng-model="cabr.cabrCarType"><br>
+															<option ng-repeat="cabt in cabtList">{{cabt.cabtType}}</option>
+														</select><br>
+													</div>
+												</div>
+									</form>
+									</div>
+								</div>
+									</div>
+
+								<center><button class="btn btn-primary" ng-click="addData(cabr)"> Add Details</button>
+								<button class="btn btn-success" ng-click="updateData(cabr)"> Update Details</button></center>
+							</div><br><br>
+
+							<div class="container">
+								<div class="well">
+
+							<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>Driver Name</th>
+										<th>Car Name</th>
+										<th>Car Type</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="cabr in cabrList">
+										<td>{{cabr.cabrName}}</td>
+										<td>{{cabr.cabrCarName}}</td>
+										<td>{{cabr.cabrCarType}}</td>
+
+										 <td><button ng-click="deleteData(cabr)" class="btn btn-danger"> Delete</button></td>
+										<td><button class="btn btn-info" ng-click="editData(cabr)"> Edit</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab">
+
+						<!-- flight section -->
+						<div class="bhoechie-tab-content active">
+							<div class="row">
+							<div class="container">
+								<div class="col-xs-12 well">
+
+									<div class="well well-sm">
+									<form>
+									<b><h3 class="text-center">Cab Type Details</h3></b>
+										<b>Cab Type</b>
+											<input class="form-control" ng-model="cabt.cabtType" placeholder="Cab type"><br>
+								</form>
+								</div>
+							</div>
+								</div>
+
+							<center><button class="btn btn-primary" ng-click="addData(cabt)"> Add Details</button>
+							<button class="btn btn-success" ng-click="updateData(cabt)"> Update Details</button></center>
+						</div><br><br>
+
+						<div class="container">
+							<div class="well">
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>Cab Type</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="cabt in cabtList">
+									<td>{{cabt.cabtType}}</td>
+									 <td><button ng-click="deleteData(cabt)" class="btn btn-danger"> Delete</button></td>
+									<td><button ng-click="editData(cabt)" class="btn btn-info" > Edit</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+
+			                <div class="bhoechie-tab-content">
+			                    <center>
+			                      <table class="table">
+							            <thead>
+							                <tr>
+																<th>Cab Type</th>
+																<th>Rate per KM</th>
+							                </tr>
+							            </thead>
+							            <tbody>
+							                <tr>
+							                  <td><select ng-model="tarf.tarfCabType" placeholder="Cab Type">
+							                   <option ng-repeat="cabt in cabtList">
+																	 {{cabt.cabtType}}
+																 </option>
+							                   </select>
+															 </td>
+																<td><input placeholder="Rate" ng-model="tarf.tarfRate"/></td>
+																 <td><button ng-click="addData(tarf)" class="btn btn-primary">Add</button></td>
+							                   <td><button ng-click="updateData(tarf)" class="btn btn-success">Update</button></td>
+
+							                </tr>
+							                <tr ng-repeat=" tarf in tarfList">
+							                    <td>{{tarf.tarfCabType}}</td>
+							                    <td>{{tarf.tarfRate}}</td>
+							                    <td><button ng-click="deleteData(tarf)" class="btn btn-danger">Remove</button></td>
+							                    <td><button ng-click="editData(tarf)" class="btn btn-info">Edit</button></td>
+							                </tr>
+							            </tbody>
+							 </table>
+                    </center>
+                </div>
+
+        <!-- Offers -->
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab">
+
+						<!-- flight section -->
+						<div class="bhoechie-tab-content active">
+							<div class="row">
+							<div class="container">
+								<div class="col-xs-12 well">
+									<div class="well well-sm">
+									<form style="padding-left:20px;">
+
+
+												<strong>Source</strong><br>
+												<input type="text" class="form-control" ng-model="offr.offrSource" placeholder="Source"><br>
+
+
+												<strong>Destination</strong><br>
+												<input type="text" class="form-control" ng-model="offr.offrDestination" placeholder="Destination"><br>
+
+
+
+												<strong>Discount in %</strong><br>
+												<input type="text" class="form-control" ng-model="offr.offrDiscount" placeholder="%">
+
+
+								</form>
+							</div>
+						</div>
+					</div>
+					<br>
+							<center><button class="btn btn-primary" ng-click="addData(offr)"> Add Details</button>
+							<!--<button class="btn btn-success" ng-click="updateData(offr)"> Update Details</button></center>-->
+						</div><br><br>
+
+						<div class="container">
+							<div class="well">
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>Source</th>
+									<th>Destination</th>
+									<th>Discount in %</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat=" offr in offrList">
+									<td>{{offr.offrSource}}</td>
+									 <td>{{offr.offrDestination}}</td>
+									 <td>{{offr.offrDiscount}}</td>
+									 <td><button ng-click="deleteData(offr)" class="btn btn-danger">Remove</button></td>
+									<!-- <td><button ng-click="editData(offr)" class="btn btn-primary">Edit</button></td>-->
+								 </tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+</div>
+
+        </div>
+      </div>
+		</div>
+  </div>
+</div>
